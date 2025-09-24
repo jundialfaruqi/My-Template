@@ -85,7 +85,7 @@
                 </div>
 
                 <!-- Sidebar menu -->
-                <ul class="menu p-3 w-full text-base-content text-sm md:text-base flex-1">
+                <ul class="menu p-3 w-full  text-base-content text-sm md:text-base flex-1">
                     <li class="menu-title">
                         <span>Main Menu</span>
                     </li>
@@ -194,7 +194,7 @@
                         <div class="hidden lg:block lg:ml-1 lg:w-64">
                             <div class="form-control w-full">
                                 <div class="input-group flex items-stretch">
-                                    <label class="input bg-base-300">
+                                    <label class="input backdrop-blur-md bg-white/10 border border-white/20 shadow">
                                         <svg class="h-[2em] opacity-50" xmlns="http://www.w3.org/2000/svg"
                                             viewBox="0 0 24 24">
                                             <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5"
@@ -213,7 +213,8 @@
                     </div>
                     <div class="flex-none flex items-center gap-2">
                         <!-- Dark Mode Toggle -->
-                        <label class="swap swap-rotate btn btn-ghost bg-base-300 btn-circle h-10 w-10">
+                        <label
+                            class="swap swap-rotate btn backdrop-blur-md bg-white/10 border border-white/20 shadow btn-circle h-10 w-10">
                             <!-- this hidden checkbox controls the state -->
                             <input type="checkbox" class="theme-controller" value="dark" />
 
@@ -235,7 +236,7 @@
                         <!-- Dropdown notifikasi - hanya tampil di desktop  -->
                         <div class="dropdown dropdown-end hidden lg:block">
                             <label tabindex="0"
-                                class="btn btn-ghost bg-base-300 btn-circle h-10 w-10 flex items-center justify-center">
+                                class="btn backdrop-blur-md bg-white/10 border border-white/20 shadow btn-circle h-10 w-10 flex items-center justify-center">
                                 <div class="indicator">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                                         viewBox="0 0 24 24" stroke="currentColor">
@@ -300,7 +301,9 @@
                             </div>
                         </div>
                         <div class="avatar avatar-placeholder">
-                            <div class="bg-base-300 w-10 h-10 rounded-full flex items-center justify-center">
+                            <div
+                                class="w-10 h-10 rounded-full flex items-center justify-center 
+                                        backdrop-blur-md bg-white/10 border border-white/20 shadow">
                                 <span class="font-bold">JD</span>
                             </div>
                         </div>
