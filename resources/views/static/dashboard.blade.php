@@ -137,7 +137,8 @@
                     <li class="menu-title mt-4">
                         <span>Settings</span>
                     </li>
-                    <li><a>
+                    <li>
+                        <a>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -146,15 +147,28 @@
                                     d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                             </svg>
                             <span class="menu-item-text">General Settings</span>
-                        </a></li>
-                    <li><a>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                            </svg>
-                            <span class="menu-item-text">User Management</span>
-                        </a></li>
+                        </a>
+                    </li>
+                    <li>
+                        <details open>
+                            <summary>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                </svg>
+                                <span class="menu-item-text">Manajemen Pengguna</span>
+                            </summary>
+                            <ul class="text-gray-500 text-sm">
+                                <li>
+                                    <a># Data Role Pengguna</a>
+                                </li>
+                                <li>
+                                    <a># Daftar Pengguna</a>
+                                </li>
+                            </ul>
+                        </details>
+                    </li>
                 </ul>
 
                 <!-- Collapse button at the very bottom (desktop only) -->
@@ -508,11 +522,19 @@
                         sidebar.classList.remove('w-64', 'sm:w-72', 'md:w-80');
                         sidebar.classList.add('w-20');
 
-                        // Hide text elements
+                        // Hide text elements (but not in dropdown menus)
                         document.querySelectorAll('.menu-item-text, .menu-title, .sidebar-title').forEach(
                             el => {
-                                el.classList.add('hidden');
+                                // Don't hide text inside details/dropdown menus
+                                if (!el.closest('details')) {
+                                    el.classList.add('hidden');
+                                }
                             });
+
+                        // Hide dropdown menus completely when sidebar is collapsed
+                        document.querySelectorAll('.menu details').forEach(details => {
+                            details.classList.add('hidden');
+                        });
 
                         // Show collapsed title (JT)
                         document.querySelector('.sidebar-collapsed-title').classList.remove('hidden');
@@ -597,6 +619,11 @@
                             el => {
                                 el.classList.remove('hidden');
                             });
+
+                        // Show dropdown menus when sidebar is expanded
+                        document.querySelectorAll('.menu details').forEach(details => {
+                            details.classList.remove('hidden');
+                        });
 
                         // Hide collapsed title (JT)
                         document.querySelector('.sidebar-collapsed-title').classList.add('hidden');

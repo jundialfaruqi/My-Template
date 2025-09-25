@@ -7,8 +7,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login', function () {
-    return view('login');
-});
+// Halaman Template Statis
+Route::group([], function () {
+    Route::get('/home', function () {
+        return view('static.landing-page');
+    })->name('home');
 
-Route::get('/admin', [AdminController::class, 'index']);
+    Route::get('/login', function () {
+        return view('static.login');
+    })->name('login');
+
+    Route::get('/dashboard', function () {
+        return view('static.dashboard');
+    })->name('dashboard');
+});
